@@ -4,6 +4,8 @@ import React from 'react';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
+import logo from '@/public/icons/logo.svg';
+import Image from 'next/image';
 
 export default function Navbar() {
   const links = [
@@ -60,8 +62,17 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className='abril-fatface-regular hidden text-xs lg:gap-3 2xl:text-sm h-[93px] lg:flex justify-center items-center shadow-lg'>
+    <nav className='abril-fatface-regular hidden text-xs lg:gap-3 2xl:text-sm h-[93px] lg:flex justify-center items-center shadow-lg z-50'>
       <ul className='flex justify-center space-x-4 gap-4'>
+        <Link href='/' className='absolute left-12 top-0 h-[140px] z-[101]'>
+          <Image
+            src={logo}
+            alt='MG Logo'
+            width={120}
+            priority
+            className='object-contain'
+          />
+        </Link>
         {links.map((link, key) => {
           const { label, href, subLinks } = link;
 
